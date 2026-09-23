@@ -1,0 +1,467 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    color: #26352c;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    background: #123d2a;
+    color: white;
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: #d6a84f;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    font-size: 20px;
+}
+
+.logo span {
+    font-size: 12px;
+    color: #b7c9be;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu {
+    border: none;
+    background: transparent;
+    color: #d7e5dc;
+    text-align: left;
+    padding: 14px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.menu:hover,
+.menu.active {
+    background: #236b48;
+    color: white;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    border-top: 1px solid #326048;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #b7c9be;
+}
+
+
+/* MAIN */
+
+.main {
+    flex: 1;
+    padding: 30px;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.header p {
+    color: #718078;
+    margin-top: 5px;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.usuario small {
+    display: block;
+    color: #7b8780;
+    margin-top: 3px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #236b48;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: #e8f2ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+}
+
+.card span {
+    color: #758179;
+    font-size: 13px;
+}
+
+.card h2 {
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+.pendiente .card-icon {
+    background: #fff3d6;
+}
+
+.liquidado .card-icon {
+    background: #dff4e7;
+}
+
+.peso .card-icon {
+    background: #e7eef9;
+}
+
+
+/* PANEL */
+
+.panel,
+.form-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.panel-header h2 {
+    font-size: 20px;
+}
+
+.panel-header p {
+    color: #78827d;
+    margin-top: 5px;
+}
+
+
+/* BUTTONS */
+
+.btn-primary {
+    border: none;
+    background: #236b48;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: #174c33;
+}
+
+.btn-secondary {
+    border: none;
+    background: #e8ece9;
+    color: #35443b;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* TABLE */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f5f7f6;
+}
+
+th {
+    padding: 14px;
+    text-align: left;
+    color: #637068;
+    font-size: 13px;
+}
+
+td {
+    padding: 15px 14px;
+    border-bottom: 1px solid #edf0ee;
+}
+
+tbody tr:hover {
+    background: #fafcfb;
+}
+
+
+/* ESTADOS */
+
+.estado {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    background: #fff2cc;
+    color: #956d00;
+}
+
+.estado-liquidado {
+    background: #dff3e6;
+    color: #237342;
+}
+
+
+/* FILTROS */
+
+.filtros {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.filtros input,
+.filtros select {
+    border: 1px solid #d9dfdb;
+    padding: 11px 13px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.filtros input {
+    flex: 1;
+}
+
+
+/* FORMULARIO */
+
+.form-panel {
+    max-width: 700px;
+    margin: auto;
+}
+
+.form-title {
+    margin-bottom: 25px;
+}
+
+.form-title h2 {
+    font-size: 22px;
+}
+
+.form-title p {
+    color: #758078;
+    margin-top: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5ddd8;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #236b48;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+
+/* REPORTES */
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.report-card {
+    background: #f5f8f6;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.report-card span {
+    display: block;
+    color: #6e7972;
+}
+
+.report-card strong {
+    display: block;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #236b48;
+}
+
+
+/* SECCIONES */
+
+.oculto {
+    display: none;
+}
+
+
+/* NOTIFICACION */
+
+.notificacion {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #236b48;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: none;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .report-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 15px 10px;
+    }
+
+    .logo div:not(.logo-icon),
+    .menu {
+        font-size: 0;
+    }
+
+    .menu {
+        text-align: center;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

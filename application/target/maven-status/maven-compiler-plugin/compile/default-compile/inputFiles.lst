@@ -1,0 +1,9 @@
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\exception\ApiNoDisponibleException.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\exception\LoteNoEncontradoException.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\port\LoteDto.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\port\LoteQueryPort.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\port\LoteRepository.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\usecase\BuscarLotePorIdUseCase.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\usecase\ContarLotesPendientesUseCase.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\usecase\CrearLoteUseCase.java
+C:\Users\USER\Downloads\cacaoselva\application\src\main\java\pe\edu\cacaoselva\application\usecase\ListarLotesUseCase.java

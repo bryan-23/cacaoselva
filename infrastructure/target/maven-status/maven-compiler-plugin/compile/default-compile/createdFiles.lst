@@ -1,0 +1,7 @@
+pe\edu\cacaoselva\infrastructure\http\HttpLoteQueryAdapter$ApiNoDisponibleException.class
+pe\edu\cacaoselva\infrastructure\http\HttpLoteQueryAdapter.class
+pe\edu\cacaoselva\infrastructure\persistence\LoteEntity.class
+pe\edu\cacaoselva\infrastructure\persistence\LoteJpaRepository.class
+pe\edu\cacaoselva\infrastructure\http\HttpLoteQueryAdapter$1.class
+pe\edu\cacaoselva\infrastructure\persistence\JpaLoteRepositoryAdapter.class
+pe\edu\cacaoselva\infrastructure\repository\InMemoryLoteRepository.class

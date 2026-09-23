@@ -1,0 +1,6 @@
+pe\edu\cacaoselva\desktop\config\HttpLoteClientProperties.class
+pe\edu\cacaoselva\desktop\CacaoSelvaDesktopApplication.class
+pe\edu\cacaoselva\desktop\adapter\HttpLoteQueryAdapter$1.class
+pe\edu\cacaoselva\desktop\adapter\HttpLoteQueryAdapter.class
+pe\edu\cacaoselva\desktop\view\LoteView.class
+pe\edu\cacaoselva\desktop\controller\LoteDesktopController.class

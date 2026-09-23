@@ -1,0 +1,3 @@
+package pe.edu.cacaoselva.application.usecase;
+import pe.edu.cacaoselva.application.exception.LoteNoEncontradoException; import pe.edu.cacaoselva.application.port.LoteRepository; import pe.edu.cacaoselva.domain.model.Lote;
+public class BuscarLotePorIdUseCase { private final LoteRepository loteRepository; public BuscarLotePorIdUseCase(LoteRepository loteRepository){this.loteRepository=loteRepository;} public Lote ejecutar(Integer id){ if(id==null||id<=0) throw new IllegalArgumentException("El id debe ser un entero positivo."); return loteRepository.findById(id).orElseThrow(()->new LoteNoEncontradoException(id)); } }

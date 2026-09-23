@@ -1,0 +1,3 @@
+package pe.edu.cacaoselva.api.error;
+import org.springframework.http.ResponseEntity; import org.springframework.web.bind.annotation.*; import pe.edu.cacaoselva.application.exception.LoteNoEncontradoException;
+@RestControllerAdvice public class ApiExceptionHandler { @ExceptionHandler(LoteNoEncontradoException.class) public ResponseEntity<ErrorResponse> loteNoEncontrado(LoteNoEncontradoException ex){return ResponseEntity.status(404).body(new ErrorResponse(ex.getMessage()));} @ExceptionHandler(IllegalArgumentException.class) public ResponseEntity<ErrorResponse> entradaInvalida(IllegalArgumentException ex){return ResponseEntity.badRequest().body(new ErrorResponse(ex.getMessage()));} }

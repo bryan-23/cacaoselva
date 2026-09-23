@@ -1,0 +1,3 @@
+package pe.edu.cacaoselva.monitor;
+import pe.edu.cacaoselva.application.port.LoteQueryPort; import pe.edu.cacaoselva.infrastructure.http.HttpLoteQueryAdapter; import pe.edu.cacaoselva.monitor.scheduler.MonitorScheduler; import java.net.URI; import java.net.http.HttpClient; import java.time.Duration;
+public class CacaoSelvaMonitorApplication { public static void main(String[] args){HttpClient client=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build(); LoteQueryPort port=new HttpLoteQueryAdapter(client,URI.create("http://localhost:5080/lotes")); MonitorScheduler monitor=new MonitorScheduler(port); Runtime.getRuntime().addShutdownHook(new Thread(monitor::detener)); monitor.iniciar();} }

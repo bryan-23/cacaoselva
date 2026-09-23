@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CacaoSelva - Gestión de Lotes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">🍫</div>
+            <div>
+                <h2>CacaoSelva</h2>
+                <span>Gestión de cacao</span>
+            </div>
+        </div>
+
+        <nav>
+            <button class="menu active" onclick="mostrarSeccion('dashboard')">
+                🏠 Dashboard
+            </button>
+
+            <button class="menu" onclick="mostrarSeccion('lotes')">
+                📦 Lotes
+            </button>
+
+            <button class="menu" onclick="mostrarSeccion('registrar')">
+                ➕ Registrar lote
+            </button>
+
+            <button class="menu" onclick="mostrarSeccion('reportes')">
+                📊 Reportes
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span>🌱 CacaoSelva</span>
+            <small>v1.0</small>
+        </div>
+
+    </aside>
+
+
+    <!-- CONTENIDO -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div>
+                <h1 id="tituloPagina">Dashboard</h1>
+                <p>Sistema de gestión de lotes de cacao</p>
+            </div>
+
+            <div class="usuario">
+                <div class="avatar">A</div>
+
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Usuario del sistema</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="seccion">
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <div>
+                        <span>Total de lotes</span>
+                        <h2 id="totalLotes">0</h2>
+                    </div>
+                </div>
+
+                <div class="card pendiente">
+                    <div class="card-icon">⏳</div>
+                    <div>
+                        <span>Pendientes</span>
+                        <h2 id="totalPendientes">0</h2>
+                    </div>
+                </div>
+
+                <div class="card liquidado">
+                    <div class="card-icon">✅</div>
+                    <div>
+                        <span>Liquidados</span>
+                        <h2 id="totalLiquidados">0</h2>
+                    </div>
+                </div>
+
+                <div class="card peso">
+                    <div class="card-icon">⚖️</div>
+                    <div>
+                        <span>Peso total</span>
+                        <h2 id="pesoTotal">0 kg</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Últimos lotes</h2>
+                        <p>Información registrada en Supabase</p>
+                    </div>
+
+                    <button class="btn-primary"
+                            onclick="mostrarSeccion('registrar')">
+                        + Nuevo lote
+                    </button>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Socio</th>
+                            <th>Peso</th>
+                            <th>Estado</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="tablaDashboard"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOTES -->
+        <section id="lotes" class="seccion oculto">
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Gestión de lotes</h2>
+                        <p>Todos los lotes registrados</p>
+                    </div>
+
+                    <button class="btn-primary"
+                            onclick="mostrarSeccion('registrar')">
+                        + Registrar lote
+                    </button>
+
+                </div>
+
+
+                <div class="filtros">
+
+                    <input
+                        type="text"
+                        id="busqueda"
+                        placeholder="🔍 Buscar por socio..."
+                        onkeyup="filtrarLotes()"
+                    >
+
+                    <select id="filtroEstado" onchange="filtrarLotes()">
+                        <option value="">Todos los estados</option>
+                        <option value="PENDIENTE">Pendientes</option>
+                        <option value="LIQUIDADO">Liquidados</option>
+                    </select>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Socio</th>
+                            <th>Peso (kg)</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="tablaLotes"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REGISTRAR -->
+        <section id="registrar" class="seccion oculto">
+
+            <div class="form-panel">
+
+                <div class="form-title">
+                    <h2>Registrar nuevo lote</h2>
+                    <p>Ingrese la información del lote de cacao</p>
+                </div>
+
+
+                <form id="formLote">
+
+                    <div class="form-group">
+
+                        <label>Socio</label>
+
+                        <input
+                            type="text"
+                            id="socio"
+                            placeholder="Nombre del socio"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Peso (kg)</label>
+
+                        <input
+                            type="number"
+                            id="pesoKg"
+                            step="0.01"
+                            min="0"
+                            placeholder="Ej. 120.50"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Estado</label>
+
+                        <select id="estado" required>
+
+                            <option value="PENDIENTE">
+                                PENDIENTE
+                            </option>
+
+                            <option value="LIQUIDADO">
+                                LIQUIDADO
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-buttons">
+
+                        <button
+                            type="button"
+                            class="btn-secondary"
+                            onclick="mostrarSeccion('lotes')">
+                            Cancelar
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn-primary">
+                            Guardar lote
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORTES -->
+        <section id="reportes" class="seccion oculto">
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Reporte general</h2>
+                        <p>Resumen de los lotes registrados</p>
+                    </div>
+
+                </div>
+
+
+                <div class="report-grid">
+
+                    <div class="report-card">
+
+                        <span>Total de lotes</span>
+
+                        <strong id="reporteTotal">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <span>Kg registrados</span>
+
+                        <strong id="reportePeso">
+                            0 kg
+                        </strong>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <span>Lotes pendientes</span>
+
+                        <strong id="reportePendientes">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <span>Lotes liquidados</span>
+
+                        <strong id="reporteLiquidados">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- NOTIFICACIÓN -->
+
+<div id="notificacion" class="notificacion"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
