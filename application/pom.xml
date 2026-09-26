@@ -1,1 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><parent><groupId>pe.edu.cacaoselva</groupId><artifactId>cacaoselva</artifactId><version>1.0.0</version></parent><artifactId>application</artifactId><dependencies><dependency><groupId>pe.edu.cacaoselva</groupId><artifactId>domain</artifactId><version>${project.version}</version></dependency></dependencies></project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>pe.edu.cacaoselva</groupId>
+        <artifactId>cacaoselva</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>application</artifactId>
+
+    <dependencies>
+
+        <!-- Dependencia del módulo domain -->
+        <dependency>
+            <groupId>pe.edu.cacaoselva</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Dependencias para pruebas unitarias -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
